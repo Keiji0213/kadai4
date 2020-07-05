@@ -1,5 +1,13 @@
 #!/bin/bash
 
+assert_equal() {
+	if [ "$1" != "$2 ]; then
+		echo "$3" >&2
+		exit 1
+	fi
+}
+
+
 #テスト(引数の個数確認)
 message="2つの引数を指定してください"
 assert_equal "${message}" "$(./kadai4.sh 2>&1)" "引数無し"
